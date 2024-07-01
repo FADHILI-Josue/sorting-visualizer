@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #344e41;
+  --background-start: #3a5a40;
+  --background-end: #a3b18a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #a3b18a;
+    --background-start: #3a5a40;
+    --background-end: #344e41;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(to bottom, transparent, var(--background-end))
+    var(--background-start);
+  overflow: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.default-line-color {
+  background: theme("colors.system.green80");
+}
+
+.change-line-color {
+  background: theme("colors.system.green60");
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
